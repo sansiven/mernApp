@@ -1,0 +1,3 @@
+In models we define schemas  for our app
+
+like User Schema to represent a  user in this one.
