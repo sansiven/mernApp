@@ -11,10 +11,14 @@ const validateLoginInput = require("../../validaton/login");
 //Load User Model
 const User = require("../../models/User");
 
+/**
+ * Register the user
+ * @route POST api/users/register
+ * @desc Register User
+ * @access Public 
+ */
 
-//@route POST api/users/register
-//@desc Register User
-// @access Public 
+
 
 router.post("/register", (req, res) => {
     //Form Validation
@@ -49,13 +53,16 @@ router.post("/register", (req, res) => {
     })
 })
 
-//sign our jwt, including our payload, keys.secretOrKey from keys.js and setting a expires in time 
-//if successful, append a token to  a bearer string as we have sertup ExtractJwt.fromAuthHeaderAsBearerToken
-// in passport.js
-
-// @route POST api/users/login
-// @desc Login user and return JWT token
-// @access Public
+/*
+ *sign our jwt, including our payload, keys.secretOrKey from keys.js and setting a expires in time 
+*if successful, append a token to  a bearer string as we have sertup ExtractJwt.fromAuthHeaderAsBearerToken
+*in passport.js*/
+/**
+*  Users able to Login 
+* @route POST api/users/login
+* @desc Login user and return JWT token
+* @access Public
+*/
 router.post("/login", (req, res) => {
     //Form validation 
     const {errors, isValid} = validateLoginInput(req.body);
@@ -68,7 +75,11 @@ router.post("/login", (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    //Find user by email
+    /**
+     * Finds a user from mongo db database
+     * @param email 
+     * @returns promises
+     */
     User.findOne({email}).then(user => {
         //Check if user exists
         if(!user){

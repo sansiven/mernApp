@@ -25,6 +25,10 @@
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "jsdoc": "^3.6.4",
+    "mocha": "^8.0.1",
     "nodemon": "^2.0.4"
   }
 }
