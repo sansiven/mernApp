@@ -45,4 +45,5 @@ app.use("/api/users", users);
 //we can achieve this by creating a process.env file and accessing it through "dotenv" package as well    
 const port = 5000;
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`))
+module.exports  = app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+
